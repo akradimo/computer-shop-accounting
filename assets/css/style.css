@@ -1,0 +1,79 @@
+/* استایل‌های پایه برای پلاگین */
+.csa-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.csa-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.csa-table th, .csa-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.csa-login-form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.csa-login-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.csa-login-form input[type="text"],
+.csa-login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.csa-login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.csa-login-form input[type="submit"]:hover {
+    background-color: #005177;
+}
+/* استایل‌های فرم افزودن شخص */
+.wrap h1 {
+    margin-bottom: 20px;
+}
+
+.form-table th {
+    width: 200px;
+}
+
+.form-table input[type="text"],
+.form-table input[type="email"],
+.form-table input[type="url"],
+.form-table textarea {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-table textarea {
+    height: 100px;
+}
+
+.button-primary {
+    margin-top: 20px;
+}
