@@ -77,3 +77,94 @@
 .button-primary {
     margin-top: 20px;
 }
+/* استایل‌های جدول لیست اشخاص */
+.min-w-full {
+    min-width: 100%;
+}
+
+.bg-gray-50 {
+    background-color: #f9fafb;
+}
+
+.border-gray-200 {
+    border-color: #e5e7eb;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.text-gray-900 {
+    color: #111827;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top-width: 1px;
+}
+
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: #e5e7eb;
+}
+
+.flex {
+    display: flex;
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0.5rem;
+}
+
+.text-indigo-600 {
+    color: #4f46e5;
+}
+
+.hover\:text-indigo-900:hover {
+    color: #3730a3;
+}
+
+.text-red-600 {
+    color: #dc2626;
+}
+
+.hover\:text-red-900:hover {
+    color: #991b1b;
+}

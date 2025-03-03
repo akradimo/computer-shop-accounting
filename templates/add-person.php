@@ -1,4 +1,6 @@
 <?php
+// File: wp-content/plugins/computer-shop-accounting/templates/add-person.php
+
 if (!defined('ABSPATH')) {
     exit; // خروج در صورت دسترسی مستقیم
 }
@@ -7,6 +9,7 @@ global $wpdb;
 
 // ذخیره اطلاعات فرم
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['csa_add_person'])) {
+    // دریافت و اعتبارسنجی داده‌ها
     $person_type = sanitize_text_field($_POST['person_type']);
     $display_name = sanitize_text_field($_POST['display_name']);
     $account_code = sanitize_text_field($_POST['account_code']);
@@ -37,13 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['csa_add_person'])) {
     // اعتبارسنجی کد ملی ایرانی
     if (!empty($national_code)) {
         if (!validate_national_code($national_code)) {
-            echo '<div class="error"><p>کد ملی وارد شده معتبر نیست.</p></div>';
+            echo '<div class="notice notice-error"><p>کد ملی وارد شده معتبر نیست.</p></div>';
             return;
         }
     }
 
     // ذخیره اطلاعات در دیتابیس
-    $wpdb->insert(
+    $result = $wpdb->insert(
         "{$wpdb->prefix}csa_persons",
         array(
             'person_type' => $person_type,
@@ -75,7 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['csa_add_person'])) {
         )
     );
 
-    echo '<div class="updated"><p>شخص با موفقیت افزوده شد.</p></div>';
+    if ($result === false) {
+        echo '<div class="notice notice-error"><p>خطا در ذخیره اطلاعات: ' . $wpdb->last_error . '</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>شخص با موفقیت افزوده شد.</p></div>';
+    }
 }
 
 // تابع اعتبارسنجی کد ملی ایرانی
@@ -103,6 +110,7 @@ function validate_national_code($national_code) {
 <div class="wrap">
     <h1>افزودن شخص</h1>
     <form method="post" action="">
+        <!-- بخش اطلاعات اصلی -->
         <h2>اطلاعات اصلی</h2>
         <table class="form-table">
             <tr>
@@ -156,6 +164,7 @@ function validate_national_code($national_code) {
             </tr>
         </table>
 
+        <!-- بخش تماس -->
         <h2>تماس</h2>
         <table class="form-table">
             <tr>
@@ -180,6 +189,7 @@ function validate_national_code($national_code) {
             </tr>
         </table>
 
+        <!-- بخش آدرس -->
         <h2>آدرس</h2>
         <table class="form-table">
             <tr>
@@ -204,6 +214,7 @@ function validate_national_code($national_code) {
             </tr>
         </table>
 
+        <!-- بخش عمومی -->
         <h2>عمومی</h2>
         <table class="form-table">
             <tr>
@@ -224,6 +235,7 @@ function validate_national_code($national_code) {
             </tr>
         </table>
 
+        <!-- بخش حساب بانکی -->
         <h2>حساب بانکی</h2>
         <table class="form-table">
             <tr>
@@ -254,7 +266,6 @@ function validate_national_code($national_code) {
 jQuery(document).ready(function($) {
     // ویرایش گروه
     $('#edit-category').click(function() {
-        // باز کردن یک پاپ‌آپ برای ویرایش گروه
         alert('این بخش برای ویرایش گروه در حال توسعه است.');
     });
 });
